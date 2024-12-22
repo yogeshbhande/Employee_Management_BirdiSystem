@@ -1,0 +1,43 @@
+﻿@page
+@model EmployeeManagement.Pages.Employee.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<hr/>
+
+<div class="row">
+    <div class="col-4">
+        <form method="post">
+            <div asp.asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Employees.EmployeeId"/>
+
+            <div class="form-group">
+                <label asp-for="Employees.FirstName" class="control-label"></label>
+                <input asp-for="Employees.FirstName" class="form-control" />
+                <span asp-validation-for="Employees.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employees.LastName" class="control-label"></label>
+                <input asp-for="Employees.LastName" class="form-control" />
+                <span asp-validation-for="Employees.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employees.Age" class="control-label"></label>
+                <input asp-for="Employees.Age" class="form-control" />
+                <span asp-validation-for="Employees.Age" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <a asp-page="./Index" class="btn btn-danger">Back</a>
+                <input type="submit" value="Update" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,39 @@
+﻿@page
+@model EmployeeManagement.Pages.Employee.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Are you sure that you want to delete this?</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Employees.FirstName)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.Employees.FirstName)
+        </dd>
+
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Employees.LastName)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.Employees.LastName)
+        </dd>
+
+        <dt class="col-2">
+            @Html.DisplayNameFor(model => model.Employees.Age)
+        </dt>
+        <dd class="col-10">
+            @Html.DisplayFor(model => model.Employees.Age)
+        </dd>
+
+        <form  method="post">
+            <input type="hidden" asp-for="Employees.EmployeeId" />
+            <a asp-page="./Index" class="btn btn-primary">Back</a>
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </form>
+
+    </dl>
+</div>
