@@ -44,6 +44,8 @@ namespace EmployeeManagement.Pages.Employee
 
         public async Task<IActionResult> OnPostAsync()
         {
+            Employees.DateOfBirth = Employees.DateOfBirth.ToUniversalTime();
+
             if (!ModelState.IsValid)
             {
                 return Page();

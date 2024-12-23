@@ -1,12 +1,14 @@
 using EmployeeManagement.Data;
 using EmployeeManagement.Models;
 using EmployeeManagement.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagement.Pages.Employee
 {
+    [Authorize] 
     public class IndexModel : PageModel
     {
         private readonly IEmployeeRepository _employeeRepository;
@@ -21,6 +23,7 @@ namespace EmployeeManagement.Pages.Employee
         public async Task OnGetAsync()
         {
             Employees = await _employeeRepository.GetAllEmployeesAsync();
+
         }
     }
 }

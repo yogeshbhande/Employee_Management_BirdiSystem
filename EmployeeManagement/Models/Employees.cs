@@ -10,6 +10,10 @@ namespace EmployeeManagement.Models
         public string FirstName { get; set; } = string.Empty;
         [Required]
         public string LastName { get; set; } = string.Empty;
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime DateOfBirth { get; set; }
         [Required]
         public int Age { get; set; }
     }

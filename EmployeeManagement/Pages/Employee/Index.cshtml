@@ -10,9 +10,10 @@
 <table class="table table-responsive table-striped table-hover align-middle" >
     <thead>
         <tr class="text-center">
-            <th>@Html.DisplayNameFor(model => model.Employees[0].FirstName)</th>
-            <th>@Html.DisplayNameFor(model => model.Employees[0].LastName)</th>
-            <th>@Html.DisplayNameFor(model => model.Employees[0].Age)</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Age</th>
             <th>Actions</th>
 
         </tr>
@@ -23,6 +24,7 @@
             <tr class="text-center">
                 <td>@Html.DisplayFor(model => employee.FirstName)</td>
                 <td>@Html.DisplayFor(model => employee.LastName)</td>
+                <td>@Html.DisplayFor(model => employee.DateOfBirth, "DateTimeDisplay")</td>
                 <td>@Html.DisplayFor(model => employee.Age)</td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@employee.EmployeeId" class="btn btn-primary">Edit</a>

@@ -36,6 +36,8 @@ namespace EmployeeManagement.Pages.Employee
 
         public async Task<IActionResult> OnPostAsync()
         {
+            Employees.DateOfBirth = Employees.DateOfBirth.ToUniversalTime();
+
 
             // First, check if the file is available and has a valid content type
             if (File == null || File.Length == 0)
@@ -78,7 +80,7 @@ namespace EmployeeManagement.Pages.Employee
                 await _employeeRepository.AddFileUploadEmployeeMappingAsync(fileMapping);
 
                 Message = "Employee created successfully."; // Success message
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Index");
 
             }
             catch (Exception ex)

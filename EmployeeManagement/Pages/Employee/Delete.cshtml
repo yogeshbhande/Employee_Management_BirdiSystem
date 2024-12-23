@@ -9,17 +9,24 @@
 <div>
     <dl class="row">
         <dt class="col-2">
-            @Html.DisplayNameFor(model => model.Employees.FirstName)
+            First Name
         </dt>
         <dd class="col-10">
             @Html.DisplayFor(model => model.Employees.FirstName)
         </dd>
 
         <dt class="col-2">
-            @Html.DisplayNameFor(model => model.Employees.LastName)
+            Last Name
         </dt>
         <dd class="col-10">
             @Html.DisplayFor(model => model.Employees.LastName)
+        </dd>
+
+        <dt class="col-2">
+            Date of Birth
+        </dt>
+        <dd class="col-10">
+            @Model.Employees.DateOfBirth.ToString("yyyy-MM-dd")
         </dd>
 
         <dt class="col-2">
