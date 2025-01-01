@@ -20,6 +20,17 @@ namespace EmployeeManagement.Data
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();  // This makes the UserName field unique in the database
+
+            // Seed a default row in the User table
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    UserId = 1, // Primary Key
+                    Email = "viraj@yopmail.com", // Unique email
+                    PasswordHash = "73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=", // Replace with hashed password
+                    UserName = "Viraj" // Optional
+                }
+            );
         }
 
     }

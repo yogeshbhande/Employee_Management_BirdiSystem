@@ -26,9 +26,6 @@ namespace EmployeeManagement.Pages.Employee
         [BindProperty]  
         public Employees Employees { get; set; } = default!;
 
-
-        public string FileUploadError { get; set; }
-
         public string Message { get; set; }  // Property to hold the message
 
 
@@ -48,7 +45,7 @@ namespace EmployeeManagement.Pages.Employee
             {
                 int employeeId = await _employeeRepository.AddEmployeeAsync(Employees);
                 Message = "Employee created successfully."; 
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Employee/Index");
 
             }
             catch (Exception ex)
