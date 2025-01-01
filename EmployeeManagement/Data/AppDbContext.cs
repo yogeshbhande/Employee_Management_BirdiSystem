@@ -17,7 +17,7 @@ namespace EmployeeManagement.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Apply unique constraint on the UserName field
+            //Apply unique constraint on the UserName field
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();  // This makes the UserName field unique in the database
