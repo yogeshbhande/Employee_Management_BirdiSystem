@@ -46,10 +46,5 @@ namespace EmployeeManagement.Repositories.Implementation
             }
         }
 
-        public async Task AddFileUploadEmployeeMappingAsync(FileUploadEmployeeMapping fileMapping)
-        {
-            _context.EmployeeFileMappings.Add(fileMapping);
-            await _context.SaveChangesAsync();
-        }
     }
 }

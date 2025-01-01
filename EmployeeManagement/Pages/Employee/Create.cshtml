@@ -35,16 +35,6 @@
                 <span asp-validation-for="Employees.Age" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label for="File">Upload PDF File</label>
-                <input type="file" class="form-control" id="File" name="File" accept=".pdf" />
-                @if (ModelState.ContainsKey("File"))
-                {
-                    <div class="text-danger">@ModelState["File"]?.Errors?.FirstOrDefault()?.ErrorMessage</div>
-                }
-            </div>
-
-
             <div class="form-group mt-2">
                 <a asp-page="Index" class="btn btn-danger">Back</a>
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -26,8 +26,6 @@ namespace EmployeeManagement.Pages.Employee
         [BindProperty]  
         public Employees Employees { get; set; } = default!;
 
-        [BindProperty]
-        public IFormFile File { get; set; }
 
         public string FileUploadError { get; set; }
 
@@ -39,20 +37,6 @@ namespace EmployeeManagement.Pages.Employee
             Employees.DateOfBirth = Employees.DateOfBirth.ToUniversalTime();
 
 
-            // First, check if the file is available and has a valid content type
-            if (File == null || File.Length == 0)
-            {
-                ModelState.AddModelError(string.Empty, "Please upload a file.");
-                return Page();
-            }
-
-            if (File.ContentType != "application/pdf")
-            {
-                ModelState.AddModelError(string.Empty, "Only PDF files are allowed.");
-                Message = "Only PDF files are allowed."; 
-                return Page();
-            }
-
             if (!ModelState.IsValid)
             {
                 Message = "Invalid input. Please check your form.";  
@@ -63,23 +47,7 @@ namespace EmployeeManagement.Pages.Employee
             try
             {
                 int employeeId = await _employeeRepository.AddEmployeeAsync(Employees);
-
-                // Save the file and create the file mapping
-                string filePath = await _fileUploadService.SaveFileAsync(File, employeeId);
-
-                var fileMapping = new FileUploadEmployeeMapping
-                {
-                    EmployeeId = employeeId,
-                    FileName = File.FileName,
-                    FilePath = filePath,
-                    UploadDate = DateTime.UtcNow,
-                    FileType = File.ContentType
-                };
-
-                // Insert the file mapping into the database
-                await _employeeRepository.AddFileUploadEmployeeMappingAsync(fileMapping);
-
-                Message = "Employee created successfully."; // Success message
+                Message = "Employee created successfully."; 
                 return RedirectToPage("/Index");
 
             }

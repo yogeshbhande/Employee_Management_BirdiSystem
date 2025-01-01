@@ -9,7 +9,5 @@ namespace EmployeeManagement.Repositories.Interfaces
         Task<int> AddEmployeeAsync(Employees employee);
         Task UpdateEmployeeAsync(Employees employee);
         Task DeleteEmployeeAsync(int? employeeId);
-        Task AddFileUploadEmployeeMappingAsync(FileUploadEmployeeMapping fileMapping);
-
     }
 }

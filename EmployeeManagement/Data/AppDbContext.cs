@@ -10,7 +10,6 @@ namespace EmployeeManagement.Data
         }
 
         public DbSet<Employees> Employees { get; set; }
-        public DbSet<FileUploadEmployeeMapping> EmployeeFileMappings { get; set; }
         public DbSet<User> User {  get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
